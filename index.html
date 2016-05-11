@@ -21,6 +21,36 @@
     <!--[if (lt IE 9) & (!IEMobile)]><link rel="stylesheet" href="css/ie.css" /><![endif]-->
     <!--[if gte IE 9]><!--><script src="js/vendor/jquery-1.11.1.min.js"></script><!--<![endif]-->
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+		<!--loading-->
+		<link rel="stylesheet" href="css/loading.css">
+		<script>
+			//获取浏览器页面可见高度和宽度
+		var _PageHeight = document.documentElement.clientHeight,
+				_PageWidth = document.documentElement.clientWidth;
+		//计算loading框距离顶部和左部的距离（loading框的宽度为215px，高度为61px）
+		var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0,
+				_LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0;
+		//在页面未加载完毕之前显示的loading Html自定义内容
+		var _LoadingHtml = '<div id="loadingDiv"><div class="cssload-loader-inner" ><div class="cssload-cssload-loader-line-wrap-wrap"><div class="cssload-loader-line-wrap"></div></div><div class="cssload-cssload-loader-line-wrap-wrap"><div class="cssload-loader-line-wrap"></div></div><div class="cssload-cssload-loader-line-wrap-wrap"><div class="cssload-loader-line-wrap"></div></div><div class="cssload-cssload-loader-line-wrap-wrap"><div class="cssload-loader-line-wrap"></div></div><div class="cssload-cssload-loader-line-wrap-wrap"><div class="cssload-loader-line-wrap"></div></div></div></div>';
+		//呈现loading效果
+		document.write(_LoadingHtml);
+
+		//window.onload = function () {
+		//    var loadingMask = document.getElementById('loadingDiv');
+		//    loadingMask.parentNode.removeChild(loadingMask);
+		//};
+
+		//监听加载状态改变
+		document.onreadystatechange = completeLoading;
+
+		//加载状态为complete时移除loading效果
+		function completeLoading() {
+				if (document.readyState == "complete") {
+						var loadingMask = document.getElementById('loadingDiv');
+						loadingMask.parentNode.removeChild(loadingMask);
+				}
+		}
+		</script>
 </head>
 <body>
     <header id="header">
@@ -32,18 +62,18 @@
 						<div class="grid-30"><a href="index.html" class="logo"></a></div><!--grid-30-->
 						<div class="grid-70 text-right">
 							<ul class="hidden-phone nav">
-								<li><a href="#" onclick="javascript:scroller('header', 800);">个人简介</a></li>
-								<li><a href="#" onclick="javascript:scroller('experience', 800);">工作经历</a></li>
-								<li><a href="#" onclick="javascript:scroller('work', 800);">项目经验</a></li>
-								<li><a href="#" onclick="javascript:scroller('contact', 800);">联系方式</a></li>
+								<li><a href="#" onClick="javascript:scroller('header', 800);">个人简介</a></li>
+								<li><a href="#" onClick="javascript:scroller('experience', 800);">工作经历</a></li>
+								<li><a href="#" onClick="javascript:scroller('work', 800);">项目经验</a></li>
+								<li><a href="#" onClick="javascript:scroller('contact', 800);">联系方式</a></li>
 							</ul>
 							<div class="fat-nav">
 								<div class="fat-nav__wrapper">
 										<ul>
-											<li><a href="#" onclick="javascript:scroller('header', 800);">个人简介</a></li>
-											<li><a href="#" onclick="javascript:scroller('experience', 800);">工作经历</a></li>
-											<li><a href="#" onclick="javascript:scroller('work', 800);">项目经验</a></li>
-											<li><a href="#" onclick="javascript:scroller('contact', 800);">联系方式</a></li>
+											<li><a href="#" onClick="javascript:scroller('header', 800);">个人简介</a></li>
+											<li><a href="#" onClick="javascript:scroller('experience', 800);">工作经历</a></li>
+											<li><a href="#" onClick="javascript:scroller('work', 800);">项目经验</a></li>
+											<li><a href="#" onClick="javascript:scroller('contact', 800);">联系方式</a></li>
 										</ul>
 								</div>
 						</div>
@@ -61,7 +91,7 @@
 						<h4>网页设计师/前端工程师</h4>
 					</div><!--introduction-->
 				</div><!--grid-100-->
-				<a class="down" href="#" onclick="javascript:scroller('experience', 800);"><img src="img/down.png" /></a>
+				<a class="down" href="#" onClick="javascript:scroller('experience', 800);"><img src="img/down.png" /></a>
 			</div><!--grid-container-->
 		</header>
     <div id="content">
